@@ -4,6 +4,7 @@ import com.journaldev.elasticsearch.bean.Book;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.elasticsearch.ElasticsearchException;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequest;
@@ -13,6 +14,7 @@ import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +25,7 @@ import java.util.UUID;
 @Repository
 public class BookDao {
 
-    private final String INDEX = "bookdata";
+    private final String INDEX = "bookdatav3";
     private final String TYPE = "books";
 
     private RestHighLevelClient restHighLevelClient;
@@ -40,6 +42,7 @@ public class BookDao {
         Map<String, Object> dataMap = objectMapper.convertValue(book, Map.class);
         IndexRequest indexRequest = new IndexRequest(INDEX, TYPE, book.getId())
                 .source(dataMap);
+        
         try {
             IndexResponse response = restHighLevelClient.index(indexRequest);
         } catch(ElasticsearchException e) {

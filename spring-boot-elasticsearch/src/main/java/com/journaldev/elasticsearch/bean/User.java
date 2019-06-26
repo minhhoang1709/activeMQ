@@ -2,107 +2,107 @@ package com.journaldev.elasticsearch.bean;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.Data;
+
+@Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class User {
-	private int id;
-	private int account_number;
-	private int balance;
-	private String firstname;
-	private String lastname;
+	private String id;
 	private int age;
+	private String name;
 	private String gender;
-	private String address;
-	private String employer;
+	private String company;
 	private String email;
-	private String city;
-	private String state;
-	public int getId() {
+	private String phone;
+	private String address;
+	private String about;
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public int getAccount_number() {
-		return account_number;
-	}
-	public void setAccount_number(int account_number) {
-		this.account_number = account_number;
-	}
-	public int getBalance() {
-		return balance;
-	}
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
-	public String getFirstname() {
-		return firstname;
-	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getCompany() {
+		return company;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setCompany(String company) {
+		this.company = company;
 	}
-	public String getEmployer() {
-		return employer;
-	}
-	public void setEmployer(String employer) {
-		this.employer = employer;
-	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCity() {
-		return city;
+
+	public String getPhone() {
+		return phone;
 	}
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getState() {
-		return state;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public User(int id, int account_number, int balance, String firstname, String lastname, int age, String gender,
-			String address, String employer, String email, String city, String state) {
-		this.id = id;
-		this.account_number = account_number;
-		this.balance = balance;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.age = age;
-		this.gender = gender;
+
+	public void setAddress(String address) {
 		this.address = address;
-		this.employer = employer;
-		this.email = email;
-		this.city = city;
-		this.state = state;
 	}
+
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public User(String id, int age, String name, String gender, String company, String email, String phone,
+			String address, String about) {
+		this.id = id;
+		this.age = age;
+		this.name = name;
+		this.gender = gender;
+		this.company = company;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.about = about;
+	}
+
 	public User() {
 	}
+
 }

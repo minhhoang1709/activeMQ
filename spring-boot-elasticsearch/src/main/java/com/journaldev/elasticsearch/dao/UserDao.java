@@ -51,17 +51,6 @@ public class UserDao {
         this.restHighLevelClient = restHighLevelClient;
     }
     
-    public Map<String, Object> getUserByName(String name){
-        GetRequest getRequest = new GetRequest(INDEX, TYPE, name);
-        GetResponse getResponse = null;
-        try {
-            getResponse = restHighLevelClient.get(getRequest);
-        } catch (java.io.IOException e){
-            e.getLocalizedMessage();
-        }
-        Map<String, Object> sourceAsMap = getResponse.getSourceAsMap();
-        return sourceAsMap;
-    }
     
     public Map<String, Object> getUserById(String id){
         GetRequest getRequest = new GetRequest(INDEX, TYPE, id);

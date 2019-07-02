@@ -19,11 +19,6 @@ public class UserController {
 	public UserController(UserDao userDao) {
 		this.userDao = userDao;
 	}
-
-	@GetMapping("/name")
-	public Map<String, Object> getUserByName(@RequestParam(value = "name") String name) {
-		return userDao.getUserByName(name);
-	}
 	
 	@GetMapping("/id/{id}")
 	public Map<String, Object> getUserById(@PathVariable String id) {
